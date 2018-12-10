@@ -15,6 +15,7 @@
     <modules>
         <module>hello-app</module>
         <module>hello-service</module>
+        <module>hello-starter</module>
     </modules>
 
     <dependencyManagement>
