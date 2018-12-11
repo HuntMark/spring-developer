@@ -12,14 +12,17 @@
     <artifactId>hello-app</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>hello-service</artifactId>
+            <artifactId>hello-starter</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>

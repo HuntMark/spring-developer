@@ -1,5 +1,7 @@
 package hello.autoconfigure;
 
+import hello.HelloService;
+import org.assertj.core.api.Assertions;
 import org.junit.Rule;
 import org.junit.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;
@@ -16,5 +18,10 @@ public class HelloAutoConfigurationTest {
 
     @Test
     public void defaultServiceIsAutoConfigured() {
+        this.contextRunner.run(context -> {
+            Assertions.assertThat(context).hasSingleBean(HelloService.class);
+            context.getBean(HelloService.class).sayHello("World");
+            Assertions.assertThat(this.output.toString()).contains("Hello World!");
+        });
     }
 }
