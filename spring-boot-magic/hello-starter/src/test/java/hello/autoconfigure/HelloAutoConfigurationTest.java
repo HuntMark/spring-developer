@@ -25,10 +25,10 @@ public class HelloAutoConfigurationTest {
         this.contextRunner
                 .withPropertyValues("hello.prefix=Test")
                 .run(context -> {
-            assertThat(context).hasSingleBean(HelloService.class);
-            context.getBean(HelloService.class).sayHello("World");
-            assertThat(this.output.toString()).contains("Test World!");
-        });
+                    assertThat(context).hasSingleBean(HelloService.class);
+                    context.getBean(HelloService.class).sayHello("World");
+                    assertThat(this.output.toString()).contains("Test World!");
+                });
     }
 
     @Test
@@ -40,6 +40,20 @@ public class HelloAutoConfigurationTest {
                     context.getBean(HelloService.class).sayHello("Works");
                     assertThat(this.output.toString()).contains("Mine Works**");
                 });
+    }
+
+    @Test
+    public void defaultServiceIsNotAutoConfiguredIfPrefixIsMissing() {
+        this.contextRunner.run(context ->
+                assertThat(context).doesNotHaveBean(HelloService.class));
+    }
+
+    @Test
+    public void defaultServiceIsNotAutoConfiguredWithWrongPrefix() {
+        this.contextRunner
+                .withPropertyValues("hello.prefix=booooo")
+                .run(context ->
+                        assertThat(context).doesNotHaveBean(HelloService.class));
     }
 
     @TestConfiguration

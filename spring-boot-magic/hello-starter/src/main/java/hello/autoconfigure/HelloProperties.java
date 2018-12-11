@@ -8,7 +8,7 @@ public class HelloProperties {
     /**
      * Prefix of the welcome message.
      */
-    private String prefix = "Hello";
+    private String prefix;
     private String suffix = "!";
 
     public String getPrefix() {
