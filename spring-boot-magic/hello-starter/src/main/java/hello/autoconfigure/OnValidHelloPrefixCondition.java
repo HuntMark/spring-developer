@@ -14,7 +14,7 @@ public class OnValidHelloPrefixCondition extends SpringBootCondition {
     @Override
     public ConditionOutcome getMatchOutcome(ConditionContext context,
                                             AnnotatedTypeMetadata metadata) {
-        ConditionMessage.Builder condition = ConditionMessage.forCondition("ValidHelloPrefix");
+        ConditionMessage.Builder condition = ConditionMessage.forCondition(ConditionalOnValidHelloPrefix.class);
         Environment environment = context.getEnvironment();
         if (environment.containsProperty(PROPERTY_NAME)) {
             String value = environment.getProperty(PROPERTY_NAME);
