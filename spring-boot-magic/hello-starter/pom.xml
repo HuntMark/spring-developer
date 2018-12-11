@@ -21,6 +21,7 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>hello-service</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
